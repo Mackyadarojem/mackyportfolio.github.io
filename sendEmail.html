@@ -50,7 +50,7 @@ try {
 
     $mail->send();
     echo '<alert>"Email sent"</alert>';
-    header("location:index.php");
+    header("location:index.html");
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
