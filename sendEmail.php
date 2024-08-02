@@ -34,7 +34,7 @@ try {
     $mail->Body = $message;
 
     $mail->send();
-    echo '<alert>"Email sent"</alert>';
+    echo '<script>alert("Email sent")</script>';
     header("location:index.php");
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
