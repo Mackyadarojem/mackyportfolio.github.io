@@ -1,7 +1,6 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
 
 require 'phpMailer/src/Exception.php';
 require 'phpMailer/src/PHPMailer.php';
@@ -22,8 +21,6 @@ try {
     $mail->Password = 'cmzp dskb dbzt lgyw'; // Your Gmail App password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Use STARTTLS
     $mail->Port = 587; // Port 587 for STARTTLS
-    
-
     $mail->SMTPDebug = 2;
 
     $mail->setFrom($email, $name);
