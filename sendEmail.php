@@ -6,6 +6,7 @@ require 'phpMailer/src/Exception.php';
 require 'phpMailer/src/PHPMailer.php';
 require 'phpMailer/src/SMTP.php';
 
+require '../vendor/autoload.php';
 
 $to = "mackymejorada3@gmail.com";
 $name = htmlspecialchars($_POST['name']);
