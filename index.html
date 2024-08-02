@@ -105,7 +105,7 @@
 						<p>Feel free to send me a message through email for more information.</p>
 					</header>
 					<div class="box">
-						<form method="POST" action="sendEmail.php">
+						<form id="myForm">
 							<div class="fields">
 								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
 								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
@@ -124,9 +124,9 @@
 
 				<!-- Icons -->
 					<ul class="icons">
-						<li><a target="_blank" href="https://www.facebook.com/iammack3/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a target="_blank" href="https://www.instagram.com/mackyyyamazinggg/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a target="_blank" href="https://www.linkedin.com/in/jomark-mejorada-231415253/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://www.facebook.com/iammack3/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/mackyyyamazinggg/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.linkedin.com/in/jomark-mejorada-231415253/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 					</ul>
 
 				<!-- Menu -->
@@ -149,5 +149,24 @@
 
 	</body>
 <script>
+
+$(document).ready(function(){
+$('#myForm').on('submit', function(e){
+	e.preventDefault(); // Prevent the default form submission
+	
+	var formData = $(this).serialize(); // Serialize form data
+	
+	$.ajax({
+		type: 'POST',
+		url: 'sendEmail.php', // URL to the PHP file that will process the form data
+		data: formData,
+		success: function(response){
+			$('#response').html(response); // Display the response from the PHP file
+			alert('Email Sent');
+		
+		}
+	});
+});
+});
 </script>
 </html>
