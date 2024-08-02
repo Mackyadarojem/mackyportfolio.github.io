@@ -1,4 +1,6 @@
 <?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -37,4 +39,9 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+} else {
+    http_response_code(405);
+    echo 'Method Not Allowed';
+}
+
 ?>
